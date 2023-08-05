@@ -36,16 +36,15 @@ import jakarta.persistence.Table;
 		public Student() {
 		}
 
-				public Student(Long id, String firstName, String lastName, String email,Long mobile_no,Date date_of_birth) {
-				super();
-				this.id = id;
-				this.firstName = firstName;
-				this.lastName = lastName;
-				this.email = email;
-				this.mobile_no=mobile_no;
-				this.date_of_birth=date_of_birth;
-			}
-
+		public Student(Long id, String firstName, String lastName, String email, Long mobile_no, Date date_of_birth) {
+			super();
+			this.id = id;
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.email = email;
+			this.mobile_no = mobile_no;
+			this.date_of_birth = date_of_birth;
+		}
 
 		public Long getId() {
 			return id;
@@ -95,8 +94,7 @@ import jakarta.persistence.Table;
 			this.date_of_birth = date_of_birth;
 		}
 
-		
-
+				
 		
 		
 	}
