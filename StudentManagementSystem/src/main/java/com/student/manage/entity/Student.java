@@ -2,6 +2,12 @@ package com.student.manage.entity;
 
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,11 +38,16 @@ import jakarta.persistence.Table;
 		
 		@Column(name="date_of_birth")
 		private Date date_of_birth;
+		
+		@Column(name="Age")
+		private Integer age;
+		
+		
 	
 		public Student() {
 		}
 
-		public Student(Long id, String firstName, String lastName, String email, Long mobile_no, Date date_of_birth) {
+		public Student(Long id, String firstName, String lastName, String email, Long mobile_no, Date date_of_birth,Integer age) {
 			super();
 			this.id = id;
 			this.firstName = firstName;
@@ -44,6 +55,7 @@ import jakarta.persistence.Table;
 			this.email = email;
 			this.mobile_no = mobile_no;
 			this.date_of_birth = date_of_birth;
+			this.age=age;
 		}
 
 		public Long getId() {
@@ -94,7 +106,14 @@ import jakarta.persistence.Table;
 			this.date_of_birth = date_of_birth;
 		}
 
-				
+		public Integer getAge() {
+			return age;
+		}
+
+		public void setAge(Integer age) {
+			this.age = age;
+		}
+      	
 		
 		
 	}

@@ -1,7 +1,12 @@
 package com.student.manage.service.impl;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.student.manage.entity.Student;
@@ -11,7 +16,7 @@ import com.student.manage.service.StudentService;
 @Service
 public class StudentServiceImpl implements StudentService {
 	private StudentRepo studentRepo;
-
+	
 	public StudentServiceImpl(StudentRepo studentRepo) {
 		super();
 		this.studentRepo = studentRepo;
@@ -45,5 +50,9 @@ public class StudentServiceImpl implements StudentService {
 		studentRepo.deleteById(id);	
 		
 	}
+
+	
+	
+	
 	
 }

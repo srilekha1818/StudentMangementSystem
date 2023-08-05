@@ -77,16 +77,15 @@
 							placeholder="Enter Student mobile number" 
 							/>
 						</div>
-						<div class="form-group">
-						<label>
-							Enter your birthday:
-							<input type="date"
-							 name="bday" 
-							 th:field="*{date_of_birth}"
-							max="2023-01-01"
-							 class="form-control"/>
-						</label>
-						</div>
+						 <div class="form-group">
+                            <label>Enter your birthday:</label>
+                            <input type="date" name="date_of_birth" class="form-control" oninput="calculateAge(this.value)">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Age:</label>
+                            <div id="ageDiv"></div> <!-- Display the calculated age here -->
+                        </div>
 						
 						<div class = "box-footer">
 							<button type="submit" class = "btn btn-primary">
@@ -99,5 +98,22 @@
 			</div>
 		</div>
 	</div>
+	<script>
+        // Function to calculate age and display it
+        function calculateAge(dob) {
+            var birthDate = new Date(dob);
+            var today = new Date();
+
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var monthDiff = today.getMonth() - birthDate.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            // Update the content of the ageDiv with the calculated age
+            document.getElementById('ageDiv').innerText = age + ' years';
+        }
+    </script>
 </body>
 </html>
