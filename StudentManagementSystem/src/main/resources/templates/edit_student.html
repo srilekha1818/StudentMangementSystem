@@ -78,14 +78,10 @@
 							/>
 						</div>
 						<div class="form-group">
-						<label>
-							Enter your birthday:
-							<input type="date"
-							 max="2023-08-01"
-							 name="bday" 
-							 th:field="*{date_of_birth}"
-							 class="form-control"/>
-						</label>
+							<label for="date-input">
+								Enter your birthday:</label>
+							<input type="date" id="date-input" name="date_of_birth" max="" th:field="*{date_of_birth}"
+								class="form-control" />
 						</div>
 						
 						<div class = "box-footer">
@@ -99,5 +95,8 @@
 			</div>
 		</div>
 	</div>
+	<script> var today = new Date().toISOString().split('T')[0];
+		document.getElementById("date-input").setAttribute("max", today);
+	</script>
 </body>
 </html>
