@@ -1,6 +1,7 @@
 package com.student.manage.service;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.student.manage.entity.Student;
@@ -15,5 +16,8 @@ List<Student> getAllStudents();
 	Student updateStudent(Student student);
 	
 	void deleteStudentById(Long id);
+
+	Integer calculateAge(LocalDate dob);
+	
 
 }

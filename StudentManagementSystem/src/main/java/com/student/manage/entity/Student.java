@@ -35,7 +35,8 @@ import jakarta.persistence.Table;
 		private LocalDate date_of_birth;
 		@Column(name="Age")
 		private Integer age;
-	
+		
+
 		public Student() {
 		}
 
@@ -100,15 +101,7 @@ import jakarta.persistence.Table;
 			this.date_of_birth = date_of_birth;
 		}
 
-		public Integer calculateAge(LocalDate date_of_birth){
-			LocalDate currentDate=LocalDate.now();
-	        if(date_of_birth != null) {
-	        int years= Period.between(date_of_birth, currentDate).getYears();
-	        return years;
-	        } else {
-	            return 0;
-	        }
-		}
+		
 
 		public Integer getAge() {
 			return age;

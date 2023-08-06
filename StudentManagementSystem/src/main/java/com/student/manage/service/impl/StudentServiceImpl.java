@@ -1,12 +1,9 @@
 package com.student.manage.service.impl;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.ZoneId;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.student.manage.entity.Student;
@@ -49,6 +46,16 @@ public class StudentServiceImpl implements StudentService {
 	public void deleteStudentById(Long id) {
 		studentRepo.deleteById(id);	
 		
+	}
+	@Override
+	public Integer calculateAge(LocalDate dob){
+		LocalDate currentDate=LocalDate.now();
+        if(dob != null) {
+        int years= Period.between(dob, currentDate).getYears();
+        return years;
+        } else {
+            return 0;
+        }
 	}
 
 	
