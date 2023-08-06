@@ -43,6 +43,7 @@ public class StudentController {
 
 	@PostMapping("/students")
 	public String saveStudent(@ModelAttribute("student") Student student) {
+		student.setAge(student.calculateAge(student.getDate_of_birth()));
 		studentService.saveStudent(student);
 		return "redirect:/students";
 	}
@@ -64,7 +65,8 @@ public class StudentController {
 		existingStudent.setEmail(student.getEmail());
 		existingStudent.setMobile_no(student.getMobile_no());
 		existingStudent.setDate_of_birth(student.getDate_of_birth());
-		existingStudent.setAge(student.getAge());
+		existingStudent.setAge(student.calculateAge(student.getDate_of_birth()));
+	
 
 		// save updated student object
 		studentService.updateStudent(existingStudent);

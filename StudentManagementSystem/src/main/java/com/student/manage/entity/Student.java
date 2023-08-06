@@ -1,13 +1,8 @@
 package com.student.manage.entity;
 
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.ZoneId;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,26 +32,24 @@ import jakarta.persistence.Table;
 		private Long mobile_no;
 		
 		@Column(name="date_of_birth")
-		private Date date_of_birth;
-		
+		private LocalDate date_of_birth;
 		@Column(name="Age")
 		private Integer age;
-		
-		
 	
 		public Student() {
 		}
 
-		public Student(Long id, String firstName, String lastName, String email, Long mobile_no, Date date_of_birth,Integer age) {
-			super();
-			this.id = id;
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.email = email;
-			this.mobile_no = mobile_no;
-			this.date_of_birth = date_of_birth;
-			this.age=age;
-		}
+				public Student(Long id, String firstName, String lastName, String email,Long mobile_no,LocalDate date_of_birth,Integer age) {
+				super();
+				this.id = id;
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.email = email;
+				this.mobile_no=mobile_no;
+				this.date_of_birth=date_of_birth;
+				this.age=age;
+			}
+
 
 		public Long getId() {
 			return id;
@@ -98,12 +91,23 @@ import jakarta.persistence.Table;
 			this.mobile_no = mobile_no;
 		}
 
-		public Date getDate_of_birth() {
+         
+		public LocalDate getDate_of_birth() {
 			return date_of_birth;
 		}
 
-		public void setDate_of_birth(Date date_of_birth) {
+		public void setDate_of_birth(LocalDate date_of_birth) {
 			this.date_of_birth = date_of_birth;
+		}
+
+		public Integer calculateAge(LocalDate date_of_birth){
+			LocalDate currentDate=LocalDate.now();
+	        if(date_of_birth != null) {
+	        int years= Period.between(date_of_birth, currentDate).getYears();
+	        return years;
+	        } else {
+	            return 0;
+	        }
 		}
 
 		public Integer getAge() {
@@ -113,7 +117,19 @@ import jakarta.persistence.Table;
 		public void setAge(Integer age) {
 			this.age = age;
 		}
-      	
+
+		@Override
+		public String toString() {
+			return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+					+ ", mobile_no=" + mobile_no + ", date_of_birth=" + date_of_birth + ", age=" + age + "]";
+		}
+
+		
+		}
+		
+
+		
+
 		
 		
-	}
+	
