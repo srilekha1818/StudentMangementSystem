@@ -4,11 +4,13 @@ package com.student.manage.entity;
 import java.time.LocalDate;
 import java.time.Period;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,13 +30,15 @@ import jakarta.persistence.Table;
 		@Column(name = "email")
 		private String email;
 		
-		@Column(name="mobile_no")
+		@Column(name="mobile_no",length=10)
 		private Long mobile_no;
 		
 		@Column(name="date_of_birth")
 		private LocalDate date_of_birth;
 		@Column(name="Age")
 		private Integer age;
+		 @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+		  private Marks marks;
 		
 
 		public Student() {
@@ -133,9 +137,9 @@ import jakarta.persistence.Table;
 
 		@Override
 		public String toString() {
-			return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName
+			return "studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName
 					+ ", email=" + email + ", mobile_no=" + mobile_no + ", date_of_birth=" + date_of_birth + ", age="
-					+ age + "]";
+					+ age ;
 		}
 
 		

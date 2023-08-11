@@ -31,7 +31,7 @@ public class Marks {
 	private Integer mark2;
 	@Column(name = "percentage")
 	private Integer total;
-	@OneToOne
+	 @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "studentid_fk",referencedColumnName="studentId")
     Student student;
 	
@@ -50,12 +50,13 @@ public class Marks {
 		this.total = total;
 		this.student = student;
 	}
-	public Long getId() {
+	public Long getId(Long id) {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getSubject1() {
 		return subject1;
 	}

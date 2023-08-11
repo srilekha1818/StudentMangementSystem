@@ -9,7 +9,7 @@ List<Marks> getAllMarks();
 	
 	Marks saveMarks(Marks marks);
 	
-	Marks getMarksById(Long StudentId);
+	Marks getMarksById(Long id);
 	
 	Marks updateMarks(Marks marks);
 	

@@ -22,6 +22,7 @@ public class StudentController {
 	// handler method to handle list students and return mode and view
 	@GetMapping("/students")
 	public String listStudents(Model model) {
+		
 		model.addAttribute("students", studentService.getAllStudents());
 		return "students";
 	}
@@ -44,7 +45,7 @@ public class StudentController {
 		studentService.saveStudent(student);
 		return "redirect:/students";
 	}
-
+	
 	@GetMapping("/students/edit/{id}")
 	public String editStudentForm(@PathVariable Long id, Model model) {
 		model.addAttribute("student", studentService.getStudentById(id));
