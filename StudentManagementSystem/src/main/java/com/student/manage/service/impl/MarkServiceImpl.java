@@ -37,9 +37,8 @@ private MarksRepo marksrepo;
 	}
 
 	@Override
-	public Marks getMarksById(Long studentId) {
-		Student student = studentrepo.findById(studentId).orElse(null);
-		return marksrepo.findById(studentId).get();
+	public Marks getMarksById(Long id) {
+		return marksrepo.findById(id).get();
 	}
 
 	@Override
