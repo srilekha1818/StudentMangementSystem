@@ -1,8 +1,5 @@
 package com.student.manage.controller;
 
-import java.sql.Date;
-
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,7 +56,7 @@ public class StudentController {
 
 		// get student from database by id
 		Student existingStudent = studentService.getStudentById(id);
-		existingStudent.setId(id);
+		existingStudent.getStudentId(id);
 		existingStudent.setFirstName(student.getFirstName());
 		existingStudent.setLastName(student.getLastName());
 		existingStudent.setEmail(student.getEmail());

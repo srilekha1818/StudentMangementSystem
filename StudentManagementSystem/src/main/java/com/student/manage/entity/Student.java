@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 		
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;
+		private Long studentId;
 		
 		@Column(name = "first_name", nullable = false)
 		private String firstName;
@@ -40,59 +40,73 @@ import jakarta.persistence.Table;
 		public Student() {
 		}
 
-				public Student(Long id, String firstName, String lastName, String email,Long mobile_no,LocalDate date_of_birth,Integer age) {
-				super();
-				this.id = id;
-				this.firstName = firstName;
-				this.lastName = lastName;
-				this.email = email;
-				this.mobile_no=mobile_no;
-				this.date_of_birth=date_of_birth;
-				this.age=age;
-			}
 
-
-		public Long getId() {
-			return id;
+		public Student(Long studentId, String firstName, String lastName, String email, Long mobile_no,
+				LocalDate date_of_birth, Integer age) {
+			super();
+			this.studentId = studentId;
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.email = email;
+			this.mobile_no = mobile_no;
+			this.date_of_birth = date_of_birth;
+			this.age = age;
 		}
 
-		public void setId(Long id) {
-			this.id = id;
+
+		
+
+         
+		public Long getStudentId(Long id) {
+			return studentId;
 		}
+
+
+		public void setStudentId(Long studentId) {
+			this.studentId = studentId;
+		}
+
 
 		public String getFirstName() {
 			return firstName;
 		}
 
+
 		public void setFirstName(String firstName) {
 			this.firstName = firstName;
 		}
+
 
 		public String getLastName() {
 			return lastName;
 		}
 
+
 		public void setLastName(String lastName) {
 			this.lastName = lastName;
 		}
+
 
 		public String getEmail() {
 			return email;
 		}
 
+
 		public void setEmail(String email) {
 			this.email = email;
 		}
+
 
 		public Long getMobile_no() {
 			return mobile_no;
 		}
 
+
 		public void setMobile_no(Long mobile_no) {
 			this.mobile_no = mobile_no;
 		}
 
-         
+
 		public LocalDate getDate_of_birth() {
 			return date_of_birth;
 		}
@@ -111,11 +125,20 @@ import jakarta.persistence.Table;
 			this.age = age;
 		}
 
+
+		public Long getStudentId() {
+			return studentId;
+		}
+
+
 		@Override
 		public String toString() {
-			return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-					+ ", mobile_no=" + mobile_no + ", date_of_birth=" + date_of_birth + ", age=" + age + "]";
+			return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName
+					+ ", email=" + email + ", mobile_no=" + mobile_no + ", date_of_birth=" + date_of_birth + ", age="
+					+ age + "]";
 		}
+
+		
 
 		
 		}
