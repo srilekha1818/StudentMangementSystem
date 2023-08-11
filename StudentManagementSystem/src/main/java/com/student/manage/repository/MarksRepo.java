@@ -8,5 +8,4 @@ import com.student.manage.entity.Marks;
 @Repository
 public interface MarksRepo extends JpaRepository<Marks,Long> {
 
-	public int save(int percentage);
 }

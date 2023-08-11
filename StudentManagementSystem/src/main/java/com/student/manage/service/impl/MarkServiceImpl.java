@@ -37,23 +37,6 @@ private MarksRepo marksrepo;
 	}
 
 	@Override
-	public Marks getMarksById(Long id) {
-		return marksrepo.findById(id).get();
-	}
-
-	@Override
-	public Marks updateMarks(Marks marks) {
-		// TODO Auto-generated method stub
-		return marksrepo.save(marks);
-	}
-
-	@Override
-	public void deleteMarksById(Long id) {
-		marksrepo.deleteById(id);
-
-	}
-
-	@Override
 	public Integer calculateTotal(Integer m1, Integer m2) {
 			Integer percentage=m1 + m2;
 			return percentage;
