@@ -35,6 +35,7 @@
 				<h1 class = "text-center"> Update Student </h1>
 				<div class = "card-body">
 					<form th:action="@{/students/{id} (id=${student.studentId})}" th:object = "${student}" method="POST">
+						
 						<div class ="form-group">
 							<label> Student First Name </label>
 							<input

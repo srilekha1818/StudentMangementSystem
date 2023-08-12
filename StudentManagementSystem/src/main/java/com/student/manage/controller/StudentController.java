@@ -57,7 +57,7 @@ public class StudentController {
 
 		// get student from database by id
 		Student existingStudent = studentService.getStudentById(id);
-		existingStudent.getStudentId(id);
+		existingStudent.setStudentId(id);
 		existingStudent.setFirstName(student.getFirstName());
 		existingStudent.setLastName(student.getLastName());
 		existingStudent.setEmail(student.getEmail());

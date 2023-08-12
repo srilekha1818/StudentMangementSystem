@@ -1,7 +1,5 @@
 package com.student.manage.entity;
 
-import java.util.Optional;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -19,7 +16,7 @@ public class Marks {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long markId;
 
 	@Column(name = "Subject_1")
 	private String subject1;
@@ -39,10 +36,10 @@ public class Marks {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Marks(Long id, String subject1, String subject2, Integer mark1, Integer mark2, Integer total,
+	public Marks(Long markId, String subject1, String subject2, Integer mark1, Integer mark2, Integer total,
 			Student student) {
 		super();
-		this.id = id;
+		this.markId = markId;
 		this.subject1 = subject1;
 		this.subject2 = subject2;
 		this.mark1 = mark1;
@@ -50,11 +47,11 @@ public class Marks {
 		this.total = total;
 		this.student = student;
 	}
-	public Long getId(Long id) {
-		return id;
+	public Long getId(Long markId) {
+		return markId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long markId) {
+		this.markId = markId;
 	}
 	
 	public String getSubject1() {
@@ -95,7 +92,7 @@ public class Marks {
 	}
 	@Override
 	public String toString() {
-		return "Marks [id=" + id + ", subject1=" + subject1 + ", subject2=" + subject2 + ", mark1=" + mark1 + ", mark2="
+		return "Marks [markId=" + markId + ", subject1=" + subject1 + ", subject2=" + subject2 + ", mark1=" + mark1 + ", mark2="
 				+ mark2 + ", total=" + total + ", student=" + student + "]";
 	}
 	

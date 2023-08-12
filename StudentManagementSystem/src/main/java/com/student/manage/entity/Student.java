@@ -2,8 +2,6 @@ package com.student.manage.entity;
 
 
 import java.time.LocalDate;
-import java.time.Period;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,15 +36,31 @@ import jakarta.persistence.Table;
 		@Column(name="Age")
 		private Integer age;
 		 @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-		  private Marks marks;
+		 private Marks marks;
 		
+
+		public Marks getMarks() {
+			return marks;
+		}
+
+
+		public void setMarks(Marks marks) {
+			this.marks = marks;
+		}
+
 
 		public Student() {
 		}
 
 
+		
+
+
+		
+
+         
 		public Student(Long studentId, String firstName, String lastName, String email, Long mobile_no,
-				LocalDate date_of_birth, Integer age) {
+				LocalDate date_of_birth, Integer age, Marks marks) {
 			super();
 			this.studentId = studentId;
 			this.firstName = firstName;
@@ -55,12 +69,10 @@ import jakarta.persistence.Table;
 			this.mobile_no = mobile_no;
 			this.date_of_birth = date_of_birth;
 			this.age = age;
+			this.marks = marks;
 		}
 
 
-		
-
-         
 		public Long getStudentId(Long id) {
 			return studentId;
 		}
@@ -137,10 +149,13 @@ import jakarta.persistence.Table;
 
 		@Override
 		public String toString() {
-			return "studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName
+			return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName
 					+ ", email=" + email + ", mobile_no=" + mobile_no + ", date_of_birth=" + date_of_birth + ", age="
-					+ age ;
+					+ age + ", marks=" + marks + "]";
 		}
+
+
+		
 
 		
 
